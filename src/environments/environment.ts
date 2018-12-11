@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  amplify: {
+    // Setting for AWS Amplify(Auth)
+    Auth: {
+      region: 'us-east-1',
+      userPoolId: 'us-east-1_QnnXkd0U2',
+      userPoolWebClientId: '1bi99vil9pr78m1vgqr9ti41ue'
+    }
+  },
+  // Setting for a endpoint of API Gateway
+  apiBaseUrl: 'https://ts2d3uoky6.execute-api.us-east-1.amazonaws.com/test',
+  localstorageBaseKey: 'CognitoIdentityServiceProvider.1bi99vil9pr78m1vgqr9ti41ue.'
 };
 
 /*

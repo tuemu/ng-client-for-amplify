@@ -1,5 +1,35 @@
 # NgClientForAmplify
 
+What I did are:
+
+Set up
+
+    $ npm install -g @angular/cli@latest
+    $ ng new ng-client-for-amplify --routing
+    $ cd ng-client-for-amplify
+
+Install
+
+    AWS-Amplify
+    $ npm install --save aws-amplify
+
+    Bootstrap4
+    $ npm install --save bootstrap && npm install --save jquery popper.js
+
+Modified files for the environment
+
+- tsconfig.app.json
+- src/environments/environment.ts
+- angular.json
+
+
+
+AuthService
+
+    $ ng g service auth/auth
+
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.2.
 
 ## Development server
