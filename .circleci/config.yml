@@ -52,4 +52,4 @@ workflows:
       - build
       - deploy
           requires: # buildが成功したら実行する
-                - build
+            - build
