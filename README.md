@@ -1,5 +1,6 @@
 # NgClientForAmplify
 
+Based on `https://dev.classmethod.jp/cloud/aws/angular-cognito-api-gateway-loginpage/`
 What I did are:
 
 Set up
@@ -27,6 +28,16 @@ Modified files for the environment
 AuthService
 
     $ ng g service auth/auth
+
+#### When you face some issue
+
+Like following error:
+
+    Uncaught ReferenceError: global is not defined
+To resolve it, please add following 2 lines into `polyfills.ts`
+
+    (window as any).global = window;
+    global.Buffer = global.Buffer || require('buffer').Buffer;
 
 ---
 
