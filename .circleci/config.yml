@@ -19,7 +19,7 @@ jobs:
           name: Deploy to S3 if branch is Master.
           command:
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              aws s3 sync ~/repo/site s3://${AWS_S3_BUCKET_NAME}/ --exact-timestamps --delete --acl public-read
+              aws s3 sync ~/dist s3://${AWS_S3_BUCKET_NAME}/ --exact-timestamps --delete --acl public-read
             fi        
   lint:
     docker:
@@ -51,3 +51,5 @@ workflows:
     jobs:
       - build
       - deploy
+          requires: # buildが成功したら実行する
+                - build
