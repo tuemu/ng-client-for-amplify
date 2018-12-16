@@ -7,10 +7,8 @@ jobs:
       - checkout
       - run: echo "Start build"
       - run: yarn install
-      - run: 
-        command:
-          yarn build
-          ls -la dist/
+      - run: yarn build
+      - run: ls -la dist/          
      
   deploy:
 
