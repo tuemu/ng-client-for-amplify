@@ -9,9 +9,6 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run: ls -la dist/          
-     
-  deploy:
-
   lint:
     docker:
       - image: circleci/node:8.9.4-stretch-browsers
