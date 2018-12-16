@@ -23,7 +23,7 @@ jobs:
       - checkout
       - run: echo "Start test"
       - run: yarn install
-      - run: yarn test --single-run
+      - run: yarn test
   e2e:
     docker:
       - image: circleci/node:8.9.4-stretch-browsers
