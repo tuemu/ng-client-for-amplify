@@ -14,11 +14,11 @@ jobs:
       - AWS_S3_BUCKET_NAME: labo.tuemu.com
     steps:
       - run:
-      name: Deploy to S3 if branch is Master.
-      command: |
-        if [ "${CIRCLE_BRANCH}" == "master" ]; then
-          aws s3 sync ~/repo/site s3://${AWS_S3_BUCKET_NAME}/ --exact-timestamps --delete --acl public-read
-        fi        
+        name: Deploy to S3 if branch is Master.
+        command:
+          if [ "${CIRCLE_BRANCH}" == "master" ]; then
+            aws s3 sync ~/repo/site s3://${AWS_S3_BUCKET_NAME}/ --exact-timestamps --delete --acl public-read
+          fi        
   lint:
     docker:
       - image: circleci/node:8.9.4-stretch-browsers
