@@ -53,5 +53,5 @@ workflows:
     jobs:
       - build
       - deploy
-          requires: # buildが成功したら実行する
+          requires:
             - build
