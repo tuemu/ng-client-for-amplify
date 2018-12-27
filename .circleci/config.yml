@@ -15,7 +15,6 @@ jobs:
           # Must be relative path from root
           paths:
             - ng-client-for-amplify      
-      
   deploy:
     docker:
       - image: temandodx/doc-platform
