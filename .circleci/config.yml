@@ -2,54 +2,38 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8.9.4-stretch-browsers
+      # specify the version you desire here
+      - image: circleci/node:8.9
+
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
+
+    working_directory: ~/workspace
+
     steps:
       - checkout
-      - run: echo "Start build"
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          # fallback to using the latest cache if no exact match is found
+          - v1-dependencies-
+
       - run: yarn install
-      - run: yarn build
-      - run: ls -la dist/      
-  deploy:
-    docker:
-      - image: temandodx/doc-platform
-    environment:
-      - AWS_S3_BUCKET_NAME: labo.tuemu.com
-    steps:
-      - run: echo "Start deploy"
-      - run: ls -la dist/      
-      - run:
-          name: Deploy to S3 if branch is Master.
-          command:
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              aws s3 sync ~/dist s3://${AWS_S3_BUCKET_NAME}/ --exact-timestamps --delete --acl public-read
-            fi        
-  lint:
-    docker:
-      - image: circleci/node:8.9.4-stretch-browsers
-    steps:
-      - checkout
-      - run: echo "Start lint"
-      - run: yarn install
-      - run: yarn lint
-  test:
-    docker:
-      - image: circleci/node:8.9.4-stretch-browsers
-    steps:
-      - checkout
-      - run: echo "Start test"
-      - run: yarn install
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+      # run tests!
       - run: yarn test
-  e2e:
-    docker:
-      - image: circleci/node:8.9.4-stretch-browsers
-    steps:
-      - checkout
-      - run: echo "Start e2e"
-      - run: yarn install
-      - run: yarn e2e
 workflows:
   version: 2
-  build_and_deploy:
+  test_build_and_deploy:
     jobs:
       - build
       - deploy
