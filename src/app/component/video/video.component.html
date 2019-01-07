@@ -1,0 +1,28 @@
+<button (click)="Video()" class="btn btn-success mx-3 my-3">Request for getting videos</button>
+ 
+<div class="main" *ngIf="videosData">
+  <h2 class="list-title">Information</h2>
+ 
+  <div class="table-responsive">
+    <table class="table table-sm table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>id</th>
+          <th>type</th>
+          <th>price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let video of videosData; index as i;">
+          <tr>
+            <td>{{i+1}}</td>
+            <td>{{video.id}}</td>
+            <td>{{video.type}}</td>
+            <td>{{video.price}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+</div>

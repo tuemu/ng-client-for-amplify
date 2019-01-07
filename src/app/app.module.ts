@@ -9,6 +9,7 @@ import { LoginComponent } from './component/login/login.component';
 import { SignupComponent } from './component/signup/signup.component';
 import { HomeComponent } from './component/home/home.component';
 import { PetComponent } from './component/pet/pet.component';
+import { VideoComponent } from './component/video/video.component';
  
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { PetComponent } from './component/pet/pet.component';
     LoginComponent,
     SignupComponent,
     HomeComponent,
-    PetComponent
+    PetComponent,
+    VideoComponent
   ],
   imports: [
     BrowserModule,
