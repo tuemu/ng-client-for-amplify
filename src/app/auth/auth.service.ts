@@ -42,6 +42,7 @@ export class AuthService {
  
   /** Getting idtoken */
   public getIdToken(): string {
+    console.log(Auth.currentSession());
     return Auth.currentSession()['__zone_symbol__value']['idToken']['jwtToken'];
   }
  
