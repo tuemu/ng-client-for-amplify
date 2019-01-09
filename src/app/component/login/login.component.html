@@ -13,6 +13,9 @@
         <input type="password" class="form-control" placeholder="Password" formControlName="password">
       </div>
       <button type="submit" class="btn btn-primary">Log-in</button>
-    </form>
+      <div class="main" *ngIf="errorMessage">
+          <font color="#E91E63">{{errorMessage}}</font>
+        </div>
+        </form>
   </div>
 </div>
