@@ -18,7 +18,7 @@
         <button type="submit" class="btn btn-primary">Register</button>
         <div class="main" *ngIf="errorMessage">
             <font color="#E91E63">{{errorMessage}}</font>
-          </div>
+         </div>
   
       </form>
       
@@ -30,18 +30,23 @@
     <div class="confirmation" *ngIf="successfullySignup">
       <form [formGroup]="confirmationForm" (ngSubmit)="onSubmitConfirmation(confirmationForm.value)">
         <div class="form-group text-left">
-          <label>メールアドレス</label>
+          <label>Mail Address</label>
           <input type="email" class="form-control" placeholder="Enter email" formControlName="email">
         </div>
  
  
         <div class="form-group text-left">
-          <label>検証コード</label>
+          <label>Verification Code</label>
           <input type="email" class="form-control" placeholder="Enter confirmationCode" formControlName="confirmationCode">
-        </div>
-        <button type="submit" class="my-3 btn btn-primary">認証</button>
+          <div class="main" *ngIf="successfullySignup">
+              <font color="#009688">Verification code will be sent in your mail box.</font>
+              <font color="#009688">Please input it and your Mail Address.</font>
+
+           </div>
+          </div>
+        <button type="submit" class="my-3 btn btn-primary">Verify</button>
       </form>
-      <button (click)="successfullySignup = false" class="btn btn-secondary">もどる</button>
+      <button (click)="successfullySignup = false" class="btn btn-secondary">Back</button>
     </div>
  
   </div>
