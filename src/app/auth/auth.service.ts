@@ -5,6 +5,7 @@ import { map, tap, catchError } from 'rxjs/operators';
  
 import Amplify, { Auth } from 'aws-amplify';
 import { environment } from './../../environments/environment';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -42,8 +43,39 @@ export class AuthService {
  
   /** Getting idtoken */
   public getIdToken(): string {
-    console.log(Auth.currentSession());
-    return Auth.currentSession()['__zone_symbol__value']['idToken']['jwtToken'];
+    // Auth.currentSession()
+    // .then(data => {
+    //   console.log("Auth.currentSession() is ...");
+    //   console.log(data);
+    // })
+    // .catch(err => console.log(err));
+
+    // console.log("currentAuthenticatedUser is ...");
+    // console.log(Auth.currentAuthenticatedUser());
+    //return Auth.currentSession()['__zone_symbol__value']['idToken']['jwtToken'];
+
+    // console.log("__zone_symbol__value is ...");
+    // console.log(Auth.currentAuthenticatedUser()['__zone_symbol__value']);
+
+    // console.log("idToken is ...");
+    // console.log(Auth.currentAuthenticatedUser()['__zone_symbol__value']['idToken']);
+
+    // console.log("jwtToken is ...");
+    // console.log(Auth.currentAuthenticatedUser()['__zone_symbol__value']['idToken']['jwtToken']);
+
+    // Auth.currentSession()
+    // .then(data => {
+    //   console.log("data['idToken']['jwtToken'] is ...");
+    //   console.log(data['idToken']['jwtToken']);
+    //   return  data['idToken']['jwtToken'];
+    // });
+
+    var userAddress = localStorage.getItem(
+      environment.localstorageBaseKey + 'LastAuthUser'
+    );
+    return localStorage.getItem(
+      environment.localstorageBaseKey + userAddress + '.idToken'
+    );
   }
  
  

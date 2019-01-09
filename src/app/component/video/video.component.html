@@ -3,26 +3,20 @@
 <div class="main" *ngIf="videosData">
   <h2 class="list-title">Video Information</h2>
  
-  <div class="table-responsive">
-    <table class="table table-sm table-bordered table-hover">
-      <thead>
-        <tr>
-          <th>#</th>
-          <th>videoCardTemplate</th>
-          <th>videoList</th>
-          <th>loadingIndicator</th>
-        </tr>
-      </thead>
-      <tbody>
-        <ng-container *ngFor="let video of videosData; index as i;">
-          <tr>
-            <td>{{i+1}}</td>
-            <td>{{video.uiElements.videoCardTemplate}}</td>
-            <td>{{video.uiElements.videoList}}</td>
-            <td>{{video.uiElements.loadingIndicator}}</td>
-          </tr>
+  <div class=”container-fluid”>
+      <div class="row">
+      <ng-container *ngFor="let video of videosData.files; index as i;">
+          <div id={{i}} class="col-md-3 col-sm-6">
+            <div class="caption">
+              {{i+1}}
+              {{video.filename}}
+            </div> 
+            <video width="100%" height="100%" controls>
+                <source type="video/mp4" src={{video.srcurl}}> Your browser does not support the video tag...
+            </video>
+          </div>
         </ng-container>
-      </tbody>
-    </table>
-  </div>
-</div>
+        </div>
+
+      </div>
+    </div>

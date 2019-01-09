@@ -7,6 +7,7 @@ export const environment = {
   amplify: {
     // Setting for AWS Amplify(Auth)
     Auth: {
+      identityPoolId: 'us-east-1:bd878c77-bca6-4a2a-ba18-ee4b4e627783',
       region: 'us-east-1',
       userPoolId: 'us-east-1_QnnXkd0U2',
       userPoolWebClientId: '1bi99vil9pr78m1vgqr9ti41ue'

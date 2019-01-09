@@ -17,7 +17,7 @@ export class VideoService {
             headers: {Authorization: token}
         };
         return this.http.get<any>(this.Url, httpOptions).pipe(
-            tap(users => users),
+            tap(data => data),
             catchError(this.handleError('getFile', []))
         );
     }

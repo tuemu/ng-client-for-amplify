@@ -19,6 +19,13 @@ export class VideoComponent implements OnInit {
  
   Video(): void {
     this.videoService.getVideos(this.token).subscribe(result => {
+      var baseUrl = result.domain;
+      var bucket = result.bucket;
+      for (var i = 0; i < result.files.length; i++) {
+        var video = result.files[i];
+        video.srcurl = baseUrl + '/' + bucket + '/' + video.filename;
+      }
+
       this.videosData = result;
       console.log(result);
     });
