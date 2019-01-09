@@ -12,6 +12,7 @@ export class SignupComponent implements OnInit {
   public signupForm: FormGroup;
   public confirmationForm: FormGroup;
   public successfullySignup: boolean;
+  public errorMessage: string;
  
   constructor(
     private fb: FormBuilder,
@@ -42,6 +43,7 @@ export class SignupComponent implements OnInit {
         this.successfullySignup = true;
       },
       error => {
+        this.errorMessage = error.message;
         console.log(error);
       }
     );

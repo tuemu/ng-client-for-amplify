@@ -16,7 +16,12 @@
           <input type="password" class="form-control" placeholder="Enter password you want to set" formControlName="password">
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
+        <div class="main" *ngIf="errorMessage">
+            <font color="#E91E63">{{errorMessage}}</font>
+          </div>
+  
       </form>
+      
     </div>
  
     <p class="mt-5" *ngIf="!successfullySignup">Here if you have verification code.</p>
