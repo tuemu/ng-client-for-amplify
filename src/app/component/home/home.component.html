@@ -1,5 +1,27 @@
 <p class="username">
   Welcome! {{username}}
 </p>
-<app-pet></app-pet>
+
+<div class="container-fluid text-primary">
+  <h1>Purpose of this site</h1>
+  <div class="text-secondary">
+    <p>This is a experiment site using Server-less architecture.</p>
+    <p>The diagram of the architecture is as below diagram.</p>
+    <span class="panel-group" id="accordion">
+        <span class="panel panel-default">
+          <span class="panel-heading">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="text-info">Click Me</a>
+          </span>
+          <span id="collapse3" class="panel-collapse collapse in">
+              <span class= "border border-dark">
+                  <img  [ngStyle]="async" class="bird" src="/assets/images/Architecture-of-this-SPA-site.png">        
+              </span>
+                    </span>
+        </span>
+      </span>  
+    
+  </div>
+</div>
+
+  <app-pet></app-pet>
 <app-video></app-video>

@@ -8,7 +8,10 @@ import { AuthService } from './../../auth/auth.service';
 })
 export class HomeComponent implements OnInit {
   username: String;
-  constructor(private auth: AuthService) {}
+  imagePath: String;
+
+  constructor(private auth: AuthService) {
+  }
  
   ngOnInit() {
     this.getData();
