@@ -42,9 +42,14 @@ export class AuthService {
  
   /** Getting idtoken */
   public getIdToken(): string {
-    return Auth.currentSession()['__zone_symbol__value']['idToken']['jwtToken'];
+    var userAddress = localStorage.getItem(
+      environment.localstorageBaseKey + 'LastAuthUser'
+    );
+    return localStorage.getItem(
+      environment.localstorageBaseKey + userAddress + '.idToken'
+    );
   }
- 
+  
  
   /** Getting a status of logging-in */
   public isAuthenticated(): Observable<boolean> {
