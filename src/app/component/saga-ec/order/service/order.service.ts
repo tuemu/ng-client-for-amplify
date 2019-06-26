@@ -3,7 +3,7 @@ import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { CognitoUserSession } from 'amazon-cognito-identity-js';
-import { catchError, tap, map } from 'rxjs/operators';
+import { catchError, tap, map, flatMap } from 'rxjs/operators';
 import { Order } from '../order';
 
 @Injectable({
@@ -14,15 +14,17 @@ export class OrderService {
 
   constructor(private http: HttpClient) { }
 
-  public getOrders(token: string): Observable<any> {
+  public getOrders(token: string): Observable<Order[]> {
       const httpOptions = {
           //headers: {Authorization: token}
       };
-      console.log("URL: " + this.Url);
-      return this.http.get<any>(this.Url, httpOptions).pipe(
-        tap(users=> console.log(users)),
-        map(res => {
-            of(res);
+      //console.log("URL: " + this.Url);
+      return this.http.get<Order[]>(this.Url, httpOptions).pipe(
+        flatMap(res => {
+            //console.log("res: " + res);
+            const returnJson = JSON.parse(JSON.stringify(res));
+            // /console.log("res['value']: " + returnJson);
+            return of(returnJson);
         }),
         catchError(this.handleError('getFile',[]))
       );

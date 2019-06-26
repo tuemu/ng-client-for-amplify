@@ -1,7 +1,11 @@
 export class Order {
     TxId: string;
-    Amount: number;
     CompTxId: string;
-    IsCompensated: boolean;
+    OrderNo: string;
+    UserId: string;
+    ItemId: string;
+    ItemName: string;
     Price: number;
+    Amount: number;
+    IsCompensated: boolean;
 }
