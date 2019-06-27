@@ -26,21 +26,26 @@ export class OrderComponent implements OnInit {
 
             //(JSON.stringify(result)).replace("'", "\"");
             //result.replace("'", "\"");
-            let jsonStr = JSON.stringify(result);
+
+            //let jsonStr = JSON.stringify(result);
             //result = result.replace("'", "\"");
-            result = result.split("'").join("\"");
-            result = result.split("Decimal(\"").join("");
-            result = result.split("\")").join("");
-            console.log("jsonStr2: " + result);
-            
 
-            console.log("v: " + result);
+
+            let resultTmp = JSON.stringify(result);
+            console.log("resultTmp before: " + resultTmp);
+            resultTmp = resultTmp.split("'").join("\"");
+            resultTmp = resultTmp.split("Decimal(\"").join("");
+            resultTmp = resultTmp.split("\")").join("");
+            console.log("resultTmp after: " + resultTmp);
+            //let result2:Order[] = resultTmp as Order[];
+
+            //result = result.toString().split("'").join("\"");
+            console.log("result: " + result);
             console.log("JSON.stringify(v): " + JSON.stringify(result));
-            console.log("v type: " + typeof(result));
-            console.log("v result[0]: " + JSON.parse(result));
-
+            console.log("result type: " + typeof(result));
+            
             //this.ordersData.push(JSON.parse(JSON.stringify(result)));
-            this.ordersData = JSON.parse(result);
+            this.ordersData = resultTmp;
         
             // of(resJson).subscribe(v => {
             //     console.log("v: " + JSON.stringify(v));
@@ -49,6 +54,4 @@ export class OrderComponent implements OnInit {
             
         });
     }
-
-
 }

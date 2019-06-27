@@ -9,9 +9,12 @@
         <tr>
           <th>No</th>
           <th>TxId</th>
-          <th>Amont</th>
-          <th>type</th>
-          <th>price</th>
+          <th>OrderNo</th>
+          <th>UserId</th>
+          <th>ItemId</th>
+          <th>ItemName</th>
+          <th>Price</th>
+          <th>Amount</th>
         </tr>
       </thead>
       <tbody>
@@ -19,9 +22,12 @@
           <tr>
             <td>{{i+1}}</td>
             <td>{{order.TxId}}</td>
+            <td>{{order.OrderNo}}</td>
+            <td>{{order.UserId}}</td>
+            <td>{{order.ItemId}}</td>
+            <td>{{order.ItemName}}</td>
+            <td>{{order.Price}}</td>
             <td>{{order.Amount}}</td>
-            <td>{{order.Amount}}</td>
-            <td>{{order.IsCompensated}}</td>
           </tr>
         </ng-container>
       </tbody>
