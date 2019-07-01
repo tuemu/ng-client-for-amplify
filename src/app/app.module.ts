@@ -10,6 +10,7 @@ import { SignupComponent } from './component/signup/signup.component';
 import { HomeComponent } from './component/home/home.component';
 import { PetComponent } from './component/pet/pet.component';
 import { OrderComponent } from './component/saga-ec/order/order.component';
+import { StockComponent } from './component/saga-ec/stock/stock.component';
  
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { OrderComponent } from './component/saga-ec/order/order.component';
     SignupComponent,
     HomeComponent,
     PetComponent,
-    OrderComponent
+    OrderComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,
