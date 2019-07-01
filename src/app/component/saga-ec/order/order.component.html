@@ -1,7 +1,7 @@
 <button (click)="getOrders()" class="btn btn-success mx-3 my-3">Request for getting Order information</button>
  
 <div class="main" *ngIf="ordersData">
-  <h2 class="list-title">Information</h2>
+  <h2 class="list-title">Order</h2>
  
   <div class="table-responsive">
     <table class="table table-sm table-bordered table-hover">
@@ -15,6 +15,7 @@
           <th>ItemName</th>
           <th>Price</th>
           <th>Amount</th>
+          <th>IsCompensated</th>
         </tr>
       </thead>
       <tbody>
@@ -28,6 +29,7 @@
             <td>{{order.ItemName}}</td>
             <td>{{order.Price}}</td>
             <td>{{order.Amount}}</td>
+            <td>{{order.IsCompensated}}</td>
           </tr>
         </ng-container>
       </tbody>

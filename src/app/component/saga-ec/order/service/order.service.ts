@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, from } from 'rxjs';
 import { CognitoUserSession } from 'amazon-cognito-identity-js';
 import { catchError, tap, map, flatMap } from 'rxjs/operators';
 import { Order } from '../order';
@@ -19,15 +19,14 @@ export class OrderService {
           //headers: {Authorization: token}
       };
       //console.log("URL: " + this.Url);
-      return this.http.get<Order[]>(this.Url, httpOptions).pipe(
-        flatMap(res => {
-            //console.log("res: " + res);
-            const returnJson = JSON.parse(JSON.stringify(res));
-            // /console.log("res['value']: " + returnJson);
-            return of(returnJson);
-        }),
-        catchError(this.handleError('getFile',[]))
-      );
+      // return this.http.get<Order[]>(this.Url, httpOptions).pipe(
+      //   flatMap(res => {
+      //       // console.log("res: " + JSON.stringify(res));
+      //       // const returnJson = JSON.parse(res);
+      //       // /console.log("res['value']: " + returnJson);
+      //       return of(res);
+      //   }),
+      return from(this.http.get<Order[]>(this.Url, httpOptions));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
