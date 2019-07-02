@@ -11,7 +11,7 @@ import { OrderComponent } from './component/saga-ec/order/order.component';
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'ec', component: OrderComponent },
+  { path: 'ec', component: OrderComponent, canActivate: [AuthGuard]  },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent }
 ];

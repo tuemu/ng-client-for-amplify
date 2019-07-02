@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Order } from './order'
 import { OrderService } from './service/order.service';
 import { AuthService } from 'src/app/auth/auth.service';
-import { from, of } from 'rxjs';
+import { StockComponent } from '../stock/stock.component';
+import { PaymentComponent } from '../payment/payment.component';
 
 @Component({
   selector: 'app-order',
@@ -12,21 +13,34 @@ import { from, of } from 'rxjs';
 export class OrderComponent implements OnInit {
     private token: string;
     ordersData?: Order[] = new Array();
-    requestJson: string; 
+    requestJson: string;
+
+    /** 子コンポーネントを読み込む */
+    @ViewChild(StockComponent)
+    protected stockComponent: StockComponent;
+
+    @ViewChild(PaymentComponent)
+    protected paymentComponent: PaymentComponent;
 
     constructor(private service: OrderService, private auth: AuthService) { }
 
     ngOnInit() {
+        this.requestJson = JSON.stringify(this.generateInitRequest(), null , "\t");
         //this.token = this.auth.getIdToken();
+       // this.getOrders();
+       this.getOrders();
+    }
+
+    reflesh():void {
         this.getOrders();
+        this.stockComponent.reflesh();
+        this.paymentComponent.reflesh();
     }
 
     getOrders():void {
         this.service.getOrders(this.token).subscribe(result => {
             this.ordersData = result;
         });
-
-        this.requestJson = JSON.stringify(this.generateInitRequest(), null , "\t");
     }
 
     createOrder():void {

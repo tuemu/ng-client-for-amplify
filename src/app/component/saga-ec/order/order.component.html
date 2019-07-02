@@ -2,7 +2,7 @@
 <textarea #textbox type="text" [(ngModel)]="requestJson" cols=50 rows=10></textarea>
 <button (click)="createOrder()" class="btn btn-primary mx-3 my-3">Request for creating Order</button>
 <div>
-    <button (click)="getOrders()" class="btn btn-info mx-3 my-3">Reflesh</button>
+    <button (click)="reflesh()" class="btn btn-info mx-3 my-3">Reflesh</button>
 </div>
 <div class="main" *ngIf="ordersData">
   <h2 class="list-title">Order</h2>

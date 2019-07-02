@@ -16,11 +16,22 @@ export class PaymentComponent implements OnInit {
 
   constructor(private service: PaymentService, private auth: AuthService) { }
   ngOnInit() {
-      this.service.getPaymentMasters(this.token).subscribe(result => {
-          this.paymentsMasterData = result;
+  }
+
+  private getPaymentMasters(): void {
+    this.service.getPaymentMasters(this.token).subscribe(result => {
+      this.paymentsMasterData = result;
       });
-      this.service.getPayments(this.token).subscribe(result => {
-          this.paymentsData = result;
-      });
+    }
+
+  private getPayments(): void {
+    this.service.getPayments(this.token).subscribe(result => {
+      this.paymentsData = result;
+    });
+  }
+
+  reflesh() {
+    this.getPaymentMasters();
+    this.getPayments();
   }
 }
