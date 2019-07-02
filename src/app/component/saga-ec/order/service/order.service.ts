@@ -29,6 +29,19 @@ export class OrderService {
       return from(this.http.get<Order[]>(this.Url, httpOptions));
   }
 
+  public postOrders(token: string, message: string): Observable<Order> {
+    const body = JSON.parse(message);
+    const httpOptions = {
+          //headers: {Authorization: token}
+          // dataType: 'json',
+          // contentType: "application/json"
+         };
+    return this.http.post<Order>(this.Url, body, httpOptions)
+    .pipe(
+      catchError(this.handleError('postOrders', body))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       console.error(error); // log to console instead
