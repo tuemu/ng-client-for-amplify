@@ -16,11 +16,11 @@ export class StockComponent implements OnInit {
 
     constructor(private service: StockService, private auth: AuthService) { }
     ngOnInit() {
-        this.service.getStocks(this.token).subscribe(result => {
-            this.stocksData = result;
-        });
         this.service.getStockMasters(this.token).subscribe(result => {
             this.stocksMasterData = result;
+        });
+        this.service.getStocks(this.token).subscribe(result => {
+            this.stocksData = result;
         });
     }
 

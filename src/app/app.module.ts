@@ -11,6 +11,7 @@ import { HomeComponent } from './component/home/home.component';
 import { PetComponent } from './component/pet/pet.component';
 import { OrderComponent } from './component/saga-ec/order/order.component';
 import { StockComponent } from './component/saga-ec/stock/stock.component';
+import { PaymentComponent } from './component/saga-ec/payment/payment.component';
  
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StockComponent } from './component/saga-ec/stock/stock.component';
     HomeComponent,
     PetComponent,
     OrderComponent,
-    StockComponent
+    StockComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
