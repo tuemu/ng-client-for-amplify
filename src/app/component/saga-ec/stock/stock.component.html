@@ -1,0 +1,65 @@
+<div class="main" *ngIf="stocksMasterData">
+  <h2 class="list-title">Stock Master</h2>
+  <div class="table-responsive" style="max-width: 500px;">
+      <table class="table table-sm table-bordered table-hover">
+        <thead class="thead-dark">
+          <tr >
+            <th>No</th>
+            <th>ItemId</th>
+            <th>Stock</th>
+            <th >UpdateDate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let row of stocksMasterData; index as i;">
+            <tr>
+              <td>{{i+1}}</td>
+              <td>{{row.ItemId}}</td>
+              <td>{{row.Stock}}</td>
+              <td>{{row.UpdateDate}}</td>
+            </tr>
+          </ng-container>
+        </tbody>
+      </table>
+    </div>
+
+<div class="main" *ngIf="stocksData">
+  <h2 class="list-title">Stock Tx</h2>
+  <div class="table-responsive">
+    <table class="table table-sm table-bordered table-hover">
+        <thead class="thead-light">
+        <tr>
+          <th>No</th>
+          <th>TxId</th>
+          <th>OrderNo</th>
+          <th>ItemId</th>
+          <th>ItemName</th>
+          <th>Price</th>
+          <th>Amount</th>
+          <th>UpdateDate</th>
+          <th>IsCompensated</th>
+          <th>CompTxId</th>
+          <th>OriginTxId</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let row of stocksData; index as i;">
+          <tr [class]="row.IsCompensated ? 'table-danger': ''">
+            <td>{{i+1}}</td>
+            <td>{{row.TxId}}</td>
+            <td>{{row.OrderNo}}</td>
+            <td>{{row.ItemId}}</td>
+            <td>{{row.ItemName}}</td>
+            <td>{{row.Price}}</td>
+            <td>{{row.Amount}}</td>
+            <td>{{row.UpdateDate}}</td>
+            <td>{{row.IsCompensated}}</td>
+            <td>{{row.CompTxId}}</td>
+            <td>{{row.OriginTxId}}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+
+  

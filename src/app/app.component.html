@@ -6,6 +6,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/ec']">EC</a>
+      </li>
     </ul>
     <ul class="navbar-nav navbar-right" *ngIf="!(auth.loggedIn | async)">
       <li class="nav-item">

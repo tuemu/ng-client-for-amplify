@@ -14,6 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
+import { OrderComponent } from './component/saga-ec/order/order.component';
+import { StockComponent } from './component/saga-ec/stock/stock.component';
+import { PaymentComponent } from './component/saga-ec/payment/payment.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +25,10 @@ import { environment } from '../environments/environment';
     SignupComponent,
     HomeComponent,
     PetComponent,
-    VideoComponent
+    VideoComponent,
+    OrderComponent,
+    StockComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

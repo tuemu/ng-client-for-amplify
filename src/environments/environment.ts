@@ -15,6 +15,7 @@ export const environment = {
   },
   // Setting for a endpoint of API Gateway
   apiBaseUrl: 'https://ts2d3uoky6.execute-api.us-east-1.amazonaws.com/test',
+  apiForEcUrl: 'https://2f29en5jub.execute-api.us-east-1.amazonaws.com/Prod',
   localstorageBaseKey: 'CognitoIdentityServiceProvider.1bi99vil9pr78m1vgqr9ti41ue.'
 };
 
